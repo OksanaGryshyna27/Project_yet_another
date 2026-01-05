@@ -1,47 +1,50 @@
 # Project_yet_another
 Unit 11
-Completed Tasks
+## Project overview
 
- Task 2 — Page Objects
+This repository contains automated UI tests for https://practicesoftwaretesting.com  
+The project is built with Playwright and uses the Page Object Model (POM) approach.
 
-Implemented Page Object Model
+The goal of this project is to demonstrate:
+- usage of Page Objects and Fragments
+- separation of test logic from UI interactions
+- environment-based configuration using `.env`
 
-Created page objects:
+---
 
-HomePage
+## Implemented tasks
 
-LoginPage
+### Task 2
+- Refactored existing tests to use Page Object Model
+- Implemented `HomePage`, `LoginPage`, `AccountPage`
+- Extracted common header into `HeaderFragment` to avoid duplication
 
-AccountPage
+### Task 3
+- Implemented test **“Verify user can view product details”**
+- Added `ProductDetailsPage`
+- Added assertions for:
+  - product URL
+  - product name
+  - product price
+  - “Add to Cart” button visibility
+  - “Add to Favorites” button visibility
 
-Extracted shared header logic into HeaderFragment to avoid duplication
+---
 
-Updated existing test to use page objects
+## Environment variables
 
+Project uses `.env` file for configuration:
 
- Task 3 — Product Details Test
+```env
+BASE_URL=https://practicesoftwaretesting.com
+USER_EMAIL=customer@practicesoftwaretesting.com
+USER_PASSWORD=welcome01
 
-Implemented test Verify user can view product details
+## How to run tests
+1. Install dependencies
 
-Used existing page objects
+nmp install
 
-Added ProductDetailsPage with assertions:
+2. Run tests
 
-product URL
-
-product name
-
-product price
-
-Add to Cart button visibility
-
-Add to Favorites button visibility
-
-
- Environment Configuration (.env)
-
-Added .env support using dotenv
-
-Moved BASE_URL, USER_EMAIL, USER_PASSWORD to environment variables
-
-Configured playwright.config.ts to use BASE_URL
+npx playwright test

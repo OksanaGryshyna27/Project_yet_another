@@ -17,23 +17,23 @@ export class ProductDetails {
         this.addToFavoriteButton = this.page.getByTestId('add-to-favorites');
 
     }
-    async expectProductName(expectedName: string) {
+    async verifyProductName(expectedName: string) {
         await expect(this.productName).toHaveText(expectedName);
     }
 
-    async expectProductURL() {
+    async verifyProductURL() {
         await expect(this.page).toHaveURL(/\/product\//);
     }
 
-    async expectProductPricr(expectedPrice: string) {
+    async verifyProductPrice(expectedPrice: string) {
         await expect(this.productPrice).toContainText(expectedPrice);
     }
     
-    async expectAddToCartButtonVisible() {
+    async verifyAddToCartButtonVisible() {
         await expect(this.addToCartButton).toBeVisible();
     }
 
-    async expectAddToFavoriteButtonVisible() {
+    async verifyAddToFavoriteButtonVisible() {
         await expect(this.addToFavoriteButton).toBeVisible();
     }
     }

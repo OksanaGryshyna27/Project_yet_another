@@ -19,9 +19,7 @@ export class HomePage {
   
 
     async clickProductByName(name: string) {
-        const card = this.page.locator('a.card', {
-            has: this.page.locator('[data-test="product-name"]', { hasText: name }),
-        });
+        const card = this.page.locator('.card [data-test="product-name"]', { hasText: name });
         await card.click();
 
     }
