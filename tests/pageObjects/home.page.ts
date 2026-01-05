@@ -13,7 +13,7 @@ export class HomePage {
 
     }
     async openHomePage() {
-        await this.page.goto('https://practicesoftwaretesting.com/')
+        await this.page.goto('/')
     }
 
   
