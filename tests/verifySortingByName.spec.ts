@@ -1,9 +1,10 @@
 import { test, expect } from '@playwright/test';
 import { HomePage } from './pageObjects/home.page';
+import { SortType } from './categories.enum';
 
 [
-  { option: 'Name (A - Z)', direction: 'asc' },
-  { option: 'Name (Z - A)', direction: 'desc' },
+  { option: SortType.nameAZ, direction: 'asc' },
+  { option: SortType.nameZA, direction: 'desc' },
 ].forEach(({ option, direction }) => {
   test(`Verify sorting by ${option}`, async ({ page }) => {
     const homePage = new HomePage(page);
