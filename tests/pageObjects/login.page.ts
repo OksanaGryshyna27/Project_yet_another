@@ -20,5 +20,5 @@ export class LoginPage {
         await this.emailField.fill(email);
         await this.passwordField.fill(password);
         await this.page.getByTestId('login-submit').click();
-}
+    }
 };
