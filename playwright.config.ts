@@ -44,7 +44,7 @@ export default defineConfig({
         //storageState: 'playwright/.auth/user.json',
         ...devices['Desktop Chrome']
       },
-      //dependencies: ['perform-login'],
+      dependencies: ['perform-login'],
     },
 
     {
