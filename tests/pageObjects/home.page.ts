@@ -51,5 +51,9 @@ export class HomePage {
 
     async selectCategory(categoryName: string) {
   await this.page.getByLabel(categoryName).check();
-}
+    }
+    
+    async openFirstItem() {
+        await this.productNames.first().click();
+    }
 }

@@ -59,4 +59,19 @@ export class ProductDetails {
         await expect(this.toast).toBeHidden({ timeout: 8000 });
     }
 
+    async getProductData() {
+        const name = await this.productName.textContent();
+        const price = await this.productPrice.textContent();
+
+        return {
+    name: name?.trim() ?? '',
+    price: Number(
+      price
+        ?.replace('$', '')
+        .replace('€', '')
+        .trim()
+    ),
+  };
+}
+
     }
