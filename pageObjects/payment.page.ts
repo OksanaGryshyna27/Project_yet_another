@@ -1,4 +1,5 @@
 import { Locator, Page, expect } from "@playwright/test";
+import { getExpirationDateFromNow } from "../utils/dateUtils";
 
 export class PaymentPage {
     page: Page;
@@ -34,15 +35,9 @@ export class PaymentPage {
     }
 
     async fillExpirationDate(monthsToAdd: number = 3) {
-        const date = new Date();
-        date.setMonth(date.getMonth() + monthsToAdd);
+        const expirationDate = getExpirationDateFromNow(monthsToAdd);
 
-        const month = (date.getMonth() + 1).toString().padStart(2, '0');
-        const year = date.getFullYear().toString();
-
-        const formattedExpirationDate = `${month}/${year}`;
-
-        await this.expirationDate.fill(formattedExpirationDate);
+        await this.expirationDate.fill(expirationDate);
     }
 
     async fillCvv(cvv: string) {

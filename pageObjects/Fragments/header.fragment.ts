@@ -38,7 +38,5 @@ export class HeaderFragment {
     async goToCheckout() {
         await this.cartIcon.click();
     }
-
-    
 }
 

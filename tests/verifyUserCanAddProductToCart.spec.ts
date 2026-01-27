@@ -1,9 +1,8 @@
 import { test } from '@playwright/test';
-import { HomePage } from "./pageObjects/home.page"
-import { ProductDetails } from './productDetails.page';
-import { HeaderFragment } from './pageObjects/Fragments/header.fragment';
-import { CheckoutPage } from './pageObjects/checkout.page';
-
+import { HomePage } from '../pageObjects/home.page'; 
+import { ProductDetails } from '../pageObjects/productDetails.page'; 
+import { HeaderFragment } from '../pageObjects/Fragments/header.fragment'; 
+import { CheckoutPage } from '../pageObjects/checkout.page';
 
 test('Verify user can add product to cart', async ({ page }) => {
     const homePage = new HomePage(page);
