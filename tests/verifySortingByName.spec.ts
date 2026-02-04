@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { HomePage } from './pageObjects/home.page';
-import { SortType } from './categories.enum';
+import { HomePage } from '../pageObjects/home.page';
+import { SortType } from '../enums/categories.enum';
 
 [
   { option: SortType.nameAZ, direction: 'asc' },

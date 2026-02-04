@@ -37,12 +37,17 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    { name: 'perform-login', testMatch: /auth-setup\.spec\.ts/ },
+    {
+      name: 'perform-login',
+      testMatch: /auth-setup\.spec\.ts/,
+      use: { browserName: 'chromium' },
+    },
     {
       name: 'chromium',
       use: {
-        storageState: 'playwright/.auth/user.json',
-        ...devices['Desktop Chrome']
+        //storageState: 'playwright/.auth/user.json',
+        //...devices['Desktop Chrome'],
+        browserName: 'chromium',
       },
       dependencies: ['perform-login'],
     },

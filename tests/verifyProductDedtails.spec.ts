@@ -1,8 +1,8 @@
 import { test,expect } from '@playwright/test';
-import { AccountPage } from "./pageObjects/account.page";
-import { HomePage } from "./pageObjects/home.page";
-import { LoginPage } from "./pageObjects/login.page";
-import { ProductDetails } from './productDetails.page';
+import { AccountPage } from '../pageObjects/account.page'; 
+import { HomePage } from '../pageObjects/home.page'; 
+import { LoginPage } from '../pageObjects/login.page'; 
+import { ProductDetails } from '../pageObjects/productDetails.page';
 
 const email = process.env.USER_EMAIL!;
 const password = process.env.USER_PASSWORD!;
