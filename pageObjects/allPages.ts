@@ -17,6 +17,7 @@ export class AllPages {
     headerFragment: HeaderFragment;
     billingAddressPage: BillingAddressPage;
     paymentPage: PaymentPage;
+    page: Page;
 
     constructor(page: Page) {
         this.loginPage = new LoginPage(page);
@@ -27,5 +28,6 @@ export class AllPages {
         this.headerFragment = new HeaderFragment(page);
         this.billingAddressPage = new BillingAddressPage(page);
         this.paymentPage = new PaymentPage(page);
+        this.page = page;
     }
 }
