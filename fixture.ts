@@ -1,6 +1,7 @@
 import { test as base, BrowserContext } from '@playwright/test';
 import { AllPages } from './pageObjects/allPages';
 import path from 'path';
+import { API_BASE_URL, USER_EMAIL, USER_PASSWORD } from './config/test-data';
 
 const authFile = path.resolve(__dirname, 'playwright/.auth/user.json');
 
@@ -14,13 +15,6 @@ type MyFixtures = {
 
 export const test = base.extend<MyFixtures>({
 
-    context: async ({ browser }, use) => {
-        const context = await browser.newContext({
-        });
-
-        await use(context);
-        await context.close();
-    },
 
     loggedInApp: async ({ browser }, use) => {
 
@@ -43,11 +37,11 @@ export const test = base.extend<MyFixtures>({
     apiLoggedInApp: async ({ browser, request }, use) => {
     
     const resp = await request.post(
-      'https://api.practicesoftwaretesting.com/users/login',
+      `${API_BASE_URL}/users/login`,
       {
         data: {
-          email: 'customer@practicesoftwaretesting.com',
-          password: 'welcome01',
+          email: USER_EMAIL,
+          password: USER_PASSWORD,
         },
       }
     );
