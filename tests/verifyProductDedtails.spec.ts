@@ -3,9 +3,7 @@ import { AccountPage } from '../pageObjects/account.page';
 import { HomePage } from '../pageObjects/home.page'; 
 import { LoginPage } from '../pageObjects/login.page'; 
 import { ProductDetails } from '../pageObjects/productDetails.page';
-
-const email = process.env.USER_EMAIL!;
-const password = process.env.USER_PASSWORD!;
+import { USER_EMAIL, USER_PASSWORD } from '../config/test-data';
 
 test('Verify user can view product details', async ({ page }) => {
     const loginPage = new LoginPage(page);
@@ -15,7 +13,7 @@ test('Verify user can view product details', async ({ page }) => {
 
     await homePage.openHomePage();
     await loginPage.openLoginPage();
-    await loginPage.performLogin(email, password);
+    await loginPage.performLogin(USER_EMAIL, USER_PASSWORD);
     await expect(accountPage.header.navMenu).toHaveText('Jane Doe');
     await homePage.openHomePage();
     await homePage.clickProductByName('Combination Pliers');

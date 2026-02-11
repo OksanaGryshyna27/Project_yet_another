@@ -1,13 +1,11 @@
 import { expect } from '@playwright/test';
 import { test } from '../fixture';
-
-const email = process.env.USER_EMAIL!;
-const password = process.env.USER_PASSWORD!;
+import { USER_EMAIL, USER_PASSWORD } from '../config/test-data';
 
 test('Verify user can login', async ({ allPages, page }) => {
     
     await page.goto('/auth/login');
-    await allPages.loginPage.performLogin(email, password);
+    await allPages.loginPage.performLogin(USER_EMAIL, USER_PASSWORD);
     
     await expect(page).toHaveURL('/account');
     await expect (allPages.accountPage.pageTitle).toHaveText('My account');
