@@ -4,7 +4,8 @@
   "description": "First project",
   "main": "index.js",
   "scripts": {
-    "lint": "npx eslint . --fix"
+    "lint": "npx eslint . --fix",
+    "test": "dotenv -e .env -- npx playwright test"
   },
   "keywords": [],
   "author": "",
