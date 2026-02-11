@@ -1,5 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 import { config as dotenvConfig } from 'dotenv';
+import { BASE_URL } from './config/test-data';
 
 dotenvConfig();
 /**
@@ -29,7 +30,7 @@ export default defineConfig({
   use: {
     "testIdAttribute": "data-test",
     /* Base URL to use in actions like `await page.goto('')`. */
-    baseURL: process.env.BASE_URL,
+    baseURL: BASE_URL,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
