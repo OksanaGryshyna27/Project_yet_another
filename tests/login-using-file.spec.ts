@@ -10,7 +10,7 @@ test.use({ storageState: authFile });
 test('has title', async ({ page }) => {
     const homePage = new HomePage(page);
    
-    await page.goto('https://practicesoftwaretesting.com/');
+    await page.goto(`${process.env.BASE_URL}`);
    
     await expect(homePage.header.navMenu).toHaveText('Jane Doe')
 });

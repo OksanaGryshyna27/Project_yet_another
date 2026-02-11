@@ -3,7 +3,7 @@ import { AccountPage } from '../pageObjects/account.page';
 import { HomePage } from '../pageObjects/home.page'; 
 import { LoginPage } from '../pageObjects/login.page'; 
 import { ProductDetails } from '../pageObjects/productDetails.page';
-import { USER_EMAIL, USER_PASSWORD } from '../config/test-data';
+import { USER_EMAIL, USER_PASSWORD } from '../config/baseConfig';
 
 test('Verify user can view product details', async ({ page }) => {
     const loginPage = new LoginPage(page);

@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { test } from '../fixture';
-import { USER_EMAIL, USER_PASSWORD } from '../config/test-data';
+import { USER_EMAIL, USER_PASSWORD } from '../config/baseConfig';
 
 test('Verify user can login', async ({ allPages, page }) => {
     
