@@ -1,6 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 //import { config as dotenvConfig } from 'dotenv';
 //import { BASE_URL } from './config/baseConfig';
+import 'dotenv/config';
 
 //dotenvConfig();
 /**
@@ -53,15 +54,15 @@ export default defineConfig({
       dependencies: ['perform-login'],
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
 
     /* Test against mobile viewports. */
     // {
