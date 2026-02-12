@@ -11,7 +11,7 @@ const authFile = path.join(__dirname, '../playwright/.auth/user.json');
 
 test('has title', async ({ page }) => {
     const loginPage = new LoginPage(page);
-    await page.goto('/auth/login');
+    await page.goto('/auth/login', { waitUntil: 'load' });
     await loginPage.performLogin(USER_EMAIL, USER_PASSWORD);
    
     const accountPage = new AccountPage(page);
