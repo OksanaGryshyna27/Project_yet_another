@@ -3,16 +3,13 @@ import { test } from '../fixture';
 import { USER_EMAIL, USER_PASSWORD } from '../config/baseConfig';
 
 test('Verify user can view product details', async ({ apiLoggedInApp }) => {
-   // const loginPage = new LoginPage(page);
-   // const homePage = new HomePage(page);
-   // const accountPage = new AccountPage(page);
-   // const productDetails = new ProductDetails(page);
+ 
 
     await apiLoggedInApp.homePage.openHomePage();
-    await apiLoggedInApp.loginPage.openLoginPage();
-    await apiLoggedInApp.loginPage.performLogin(USER_EMAIL, USER_PASSWORD);
-    await expect(apiLoggedInApp.accountPage.header.navMenu).toHaveText('Jane Doe');
-    await apiLoggedInApp.homePage.openHomePage();
+    // await apiLoggedInApp.loginPage.openLoginPage();
+    // await apiLoggedInApp.loginPage.performLogin(USER_EMAIL, USER_PASSWORD);
+    // await expect(apiLoggedInApp.accountPage.header.navMenu).toHaveText('Jane Doe');
+    // await apiLoggedInApp.homePage.openHomePage();
     await apiLoggedInApp.homePage.clickProductByName('Combination Pliers');
     await apiLoggedInApp.productDetailsPage.verifyProductURL(); 
     await apiLoggedInApp.productDetailsPage.verifyProductName('Combination Pliers');
