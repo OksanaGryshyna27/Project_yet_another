@@ -11,7 +11,11 @@ const authFile = path.join(__dirname, '../playwright/.auth/user.json');
 
 test('has title', async ({ page }) => {
     const loginPage = new LoginPage(page);
-    await page.goto(`${BASE_URL}/auth/login`);
+    await page.goto('/auth/login');
+
+    console.log('BASE_URL:', BASE_URL);
+    console.log('Final URL:', page.url());
+    
     await loginPage.performLogin(USER_EMAIL, USER_PASSWORD);
    
     const accountPage = new AccountPage(page);
@@ -19,7 +23,7 @@ test('has title', async ({ page }) => {
     
     
 
-    await expect(page).toHaveURL(`${BASE_URL}/account`);
+    await expect(page).toHaveURL('/account');
     await expect (accountPage.pageTitle).toHaveText('My account');
     await expect(accountPage.header.navMenu).toHaveText('Jane Doe')
 

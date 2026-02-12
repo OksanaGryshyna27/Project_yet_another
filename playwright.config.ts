@@ -42,7 +42,6 @@ export default defineConfig({
       testMatch: /auth-setup\.spec\.ts/,
       use: {
         browserName: 'chromium',
-        baseURL: BASE_URL,
       },
       
     },
