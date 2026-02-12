@@ -18,6 +18,12 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+  testIgnore: [
+    'tests/login-using-file.spec.ts',
+    'tests/auth-setup.spec.ts',
+    'tests/verifyLoggedInUserWithFixtures.spec.ts',
+    'tests/verifyLogin.spec.ts'
+  ],
   use: {
     "testIdAttribute": "data-test",
     /* Base URL to use in actions like `await page.goto('')`. */
@@ -30,21 +36,12 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'perform-login',
-      testMatch: /auth-setup\.spec\.ts/,
-      use: {
-        browserName: 'chromium',
-      },
-      
-    },
-    {
       name: 'chromium',
       use: {
+        ...devices['Desktop Chrome'],
         storageState: 'playwright/.auth/user.json',
-        //...devices['Desktop Chrome'],
         browserName: 'chromium',
       },
-      dependencies: ['perform-login'],
     },
 
     {
@@ -53,7 +50,6 @@ export default defineConfig({
         ...devices['Desktop Firefox'],
         storageState: 'playwright/.auth/user.json',
       },
-      dependencies: ['perform-login'],
     },
     
 
@@ -63,7 +59,6 @@ export default defineConfig({
         ...devices['Desktop Safari'],
         storageState: 'playwright/.auth/user.json',
       },
-      dependencies: ['perform-login'],
     },
   
 

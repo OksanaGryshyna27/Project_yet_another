@@ -1,27 +1,24 @@
-import { test,expect } from '@playwright/test';
-import { AccountPage } from '../pageObjects/account.page'; 
-import { HomePage } from '../pageObjects/home.page'; 
-import { LoginPage } from '../pageObjects/login.page'; 
-import { ProductDetails } from '../pageObjects/productDetails.page';
+import { expect } from '@playwright/test';
+import { test } from '../fixture';
 import { USER_EMAIL, USER_PASSWORD } from '../config/baseConfig';
 
-test('Verify user can view product details', async ({ page }) => {
-    const loginPage = new LoginPage(page);
-    const homePage = new HomePage(page);
-    const accountPage = new AccountPage(page);
-    const productDetails = new ProductDetails(page);
+test('Verify user can view product details', async ({ apiLoggedInApp }) => {
+   // const loginPage = new LoginPage(page);
+   // const homePage = new HomePage(page);
+   // const accountPage = new AccountPage(page);
+   // const productDetails = new ProductDetails(page);
 
-    await homePage.openHomePage();
-    await loginPage.openLoginPage();
-    await loginPage.performLogin(USER_EMAIL, USER_PASSWORD);
-    await expect(accountPage.header.navMenu).toHaveText('Jane Doe');
-    await homePage.openHomePage();
-    await homePage.clickProductByName('Combination Pliers');
-    await productDetails.verifyProductURL(); 
-    await productDetails.verifyProductName('Combination Pliers');
-    await productDetails.verifyProductPrice('14.15');
-    await productDetails.verifyAddToCartButtonVisible();
-    await productDetails.verifyAddToFavoriteButtonVisible();
+    await apiLoggedInApp.homePage.openHomePage();
+    await apiLoggedInApp.loginPage.openLoginPage();
+    await apiLoggedInApp.loginPage.performLogin(USER_EMAIL, USER_PASSWORD);
+    await expect(apiLoggedInApp.accountPage.header.navMenu).toHaveText('Jane Doe');
+    await apiLoggedInApp.homePage.openHomePage();
+    await apiLoggedInApp.homePage.clickProductByName('Combination Pliers');
+    await apiLoggedInApp.productDetailsPage.verifyProductURL(); 
+    await apiLoggedInApp.productDetailsPage.verifyProductName('Combination Pliers');
+    await apiLoggedInApp.productDetailsPage.verifyProductPrice('14.15');
+    await apiLoggedInApp.productDetailsPage.verifyAddToCartButtonVisible();
+    await apiLoggedInApp.productDetailsPage.verifyAddToFavoriteButtonVisible();
 
     
 
