@@ -23,7 +23,10 @@ test('Verify logged in user can complete checkout', async ({ apiLoggedInApp }) =
 
     await apiLoggedInApp.checkoutPage.clickProceedToCheckoutButton1();
     await apiLoggedInApp.checkoutPage.clickProceedToCheckoutButton2();
+    await apiLoggedInApp.billingAddressPage.fillSreetField(address.street);
+    await apiLoggedInApp.billingAddressPage.fillCityField(address.city);
     await apiLoggedInApp.billingAddressPage.fillStateField(address.state);
+    await apiLoggedInApp.billingAddressPage.fillCountryField(address.country);
     await apiLoggedInApp.billingAddressPage.fillPostCodeField(address.postalCode);
     await apiLoggedInApp.billingAddressPage.clickProceedToCheckout();
     await apiLoggedInApp.paymentPage.selectPaymentOption('Credit Card');
