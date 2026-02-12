@@ -12,10 +12,11 @@ const authFile = path.join(__dirname, '../playwright/.auth/user.json');
 test('has title', async ({ page }) => {
     const loginPage = new LoginPage(page);
     await page.goto('/auth/login');
+    await page.getByTestId('email').waitFor();
 
     console.log('BASE_URL:', BASE_URL);
     console.log('Final URL:', page.url());
-    
+
     await loginPage.performLogin(USER_EMAIL, USER_PASSWORD);
    
     const accountPage = new AccountPage(page);
@@ -29,5 +30,3 @@ test('has title', async ({ page }) => {
 
     await page.context().storageState({ path: authFile });
 });
-console.log('EMAIL:', USER_EMAIL);
-console.log('PASSWORD:', USER_PASSWORD);
