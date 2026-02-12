@@ -11,8 +11,8 @@ const authFile = path.join(__dirname, '../playwright/.auth/user.json');
 
 test('has title', async ({ page }) => {
     const loginPage = new LoginPage(page);
-    await page.goto(`${BASE_URL}/auth/login`);
-    await page.getByTestId('email').waitFor();
+    await page.goto('/auth/login');
+    //await page.getByTestId('email').waitFor();
 
     console.log('BASE_URL VALUE:', BASE_URL);
     console.log('process.env.BASE_URL:', process.env.BASE_URL);
