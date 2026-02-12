@@ -14,8 +14,8 @@ test('has title', async ({ page }) => {
     await page.goto('/auth/login');
     await page.getByTestId('email').waitFor();
 
-    console.log('BASE_URL:', BASE_URL);
-    console.log('Final URL:', page.url());
+    console.log('BASE_URL VALUE:', BASE_URL);
+    console.log('process.env.BASE_URL:', process.env.BASE_URL);
 
     await loginPage.performLogin(USER_EMAIL, USER_PASSWORD);
    
