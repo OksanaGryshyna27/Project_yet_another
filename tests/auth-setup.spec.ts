@@ -15,6 +15,8 @@ test('has title', async ({ page }) => {
     await loginPage.performLogin(USER_EMAIL, USER_PASSWORD);
    
     const accountPage = new AccountPage(page);
+
+    
     
 
     await expect(page).toHaveURL(`${BASE_URL}/account`);
@@ -23,3 +25,5 @@ test('has title', async ({ page }) => {
 
     await page.context().storageState({ path: authFile });
 });
+console.log('EMAIL:', USER_EMAIL);
+console.log('PASSWORD:', USER_PASSWORD);
