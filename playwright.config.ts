@@ -40,7 +40,11 @@ export default defineConfig({
     {
       name: 'perform-login',
       testMatch: /auth-setup\.spec\.ts/,
-      use: { browserName: 'chromium' },
+      use: {
+        browserName: 'chromium',
+        baseURL: BASE_URL,
+      },
+      
     },
     {
       name: 'chromium',
