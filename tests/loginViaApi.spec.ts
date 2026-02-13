@@ -1,7 +1,7 @@
 import { test } from '../fixture';
 import { expect } from '@playwright/test';
 
-test('user is logged in via API fixture', async ({ apiLoggedInApp }) => {
+test('user is logged in via API fixture', {tag:['@smoke']}, async ({ apiLoggedInApp }) => {
     await apiLoggedInApp.homePage.openHomePage();
 
     await expect(

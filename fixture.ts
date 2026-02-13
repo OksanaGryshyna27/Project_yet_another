@@ -1,4 +1,4 @@
-import { test as base, BrowserContext, expect } from '@playwright/test';
+import { test as base, BrowserContext } from '@playwright/test';
 import { AllPages } from './pageObjects/allPages';
 import path from 'path';
 import { API_BASE_URL, USER_EMAIL, USER_PASSWORD } from './config/baseConfig';

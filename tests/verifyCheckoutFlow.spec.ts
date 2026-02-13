@@ -4,7 +4,7 @@ import { address } from "../testData/address.data";
 import { payment } from "../testData/payment.data";
 
 
-test('Verify logged in user can complete checkout', async ({ apiLoggedInApp }) => {
+test('Verify logged in user can complete checkout', { tag: ['@regression'] }, async ({ apiLoggedInApp }) => {
 
     await apiLoggedInApp.homePage.openHomePage();
     await apiLoggedInApp.homePage.openFirstItem();

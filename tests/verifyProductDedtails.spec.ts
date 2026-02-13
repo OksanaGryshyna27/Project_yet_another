@@ -2,7 +2,7 @@
 import { test } from '../fixture';
 //import { USER_EMAIL, USER_PASSWORD } from '../config/baseConfig';
 
-test('Verify user can view product details', async ({ apiLoggedInApp }) => {
+test('Verify user can view product details', { tag: ['@smoke'] }, async ({ apiLoggedInApp }) => {
  
 
     await apiLoggedInApp.homePage.openHomePage();

@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { HomePage } from '../pageObjects/home.page'; 
 import { PowerTools } from '../enums/categories.enum';
 
-test('Verify user can filter products by category - Sander', async ({ page }) => {
+test('Verify user can filter products by category - Sander', { tag: ['@regression'] }, async ({ page }) => {
     const homePage = new HomePage(page);
 
 

@@ -3,7 +3,7 @@ import { test } from '../fixture';
 
 
 
-test('Verify successful logged in user with fixture', async ({ loggedInApp }) => {
+test('Verify successful logged in user with fixture', { tag: ['@smoke'] }, async ({ loggedInApp }) => {
   
 
     await loggedInApp.accountPage.page.goto('/account');

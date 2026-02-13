@@ -1,5 +1,5 @@
 import { test } from "../fixture";
-test('Verify user can add product to cart', async ({ apiLoggedInApp }) => {
+test('Verify user can add product to cart', { tag: ['@regression'] }, async ({ apiLoggedInApp }) => {
     
 
     await apiLoggedInApp.homePage.openHomePage();

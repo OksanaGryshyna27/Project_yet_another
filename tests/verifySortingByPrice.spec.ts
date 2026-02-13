@@ -6,7 +6,7 @@ import { SortType } from '../enums/categories.enum';
   { option: SortType.priceLowHigh, direction: 'asc' },
   { option: SortType.priceHighLow, direction: 'desc' },
 ].forEach(({ option, direction }) => {
-  test(`Verify sorting by ${option}`, async ({ page }) => {
+  test(`Verify sorting by ${option}`, { tag: ['@regression'] }, async ({ page }) => {
     const homePage = new HomePage(page);
 
     await homePage.openHomePage();
