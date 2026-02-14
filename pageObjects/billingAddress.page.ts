@@ -28,7 +28,7 @@ export class BillingAddressPage {
         await this.postCodeField.fill(postCode);
     }
 
-    async fillSreetField(street: string)  {
+    async fillStreetField(street: string)  {
         await this.streetField.fill(street);
     }
 
@@ -37,7 +37,7 @@ export class BillingAddressPage {
     }
 
     async fillCountryField(country: string)  {
-        await this.cityField.fill(country);
+        await this.countryField.fill(country);
     }
 
 

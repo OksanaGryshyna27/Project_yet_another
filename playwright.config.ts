@@ -2,6 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 import { BASE_URL } from './config/baseConfig';
 
 
+
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
@@ -16,7 +17,17 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [
+  ['html'],
+  ['dot'],
+  ['json', { outputFile: 'test-results.json' }],
+  [
+    '@testomatio/reporter/playwright',
+  {
+      apiKey: process.env.TESTOMATIO,
+    },
+  ],
+],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   testIgnore: [
     'tests/login-using-file.spec.ts',
@@ -25,6 +36,15 @@ export default defineConfig({
     'tests/verifyLogin.spec.ts'
   ],
   use: {
+     // Capture screenshot after each test failure.
+    screenshot: 'only-on-failure',
+
+    // Record trace only when retrying a test for the first time.
+    trace: 'on-first-retry',
+
+    // Record video only when retrying a test for the first time.
+    video: 'on-first-retry',
+
     "testIdAttribute": "data-test",
     /* Base URL to use in actions like `await page.goto('')`. */
     baseURL: BASE_URL,

@@ -25,3 +25,4 @@ jobs:
           API_BASE_URL: ${{ secrets.API_BASE_URL }}
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+          TESTOMATIO: ${{ secrets.TESTOMATIO }}

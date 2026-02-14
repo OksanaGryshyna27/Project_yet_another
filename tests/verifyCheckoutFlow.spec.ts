@@ -23,7 +23,7 @@ test('Verify logged in user can complete checkout', { tag: ['@regression'] }, as
 
     await apiLoggedInApp.checkoutPage.clickProceedToCheckoutButton1();
     await apiLoggedInApp.checkoutPage.clickProceedToCheckoutButton2();
-    await apiLoggedInApp.billingAddressPage.fillSreetField(address.street);
+    await apiLoggedInApp.billingAddressPage.fillStreetField(address.street);
     await apiLoggedInApp.billingAddressPage.fillCityField(address.city);
     await apiLoggedInApp.billingAddressPage.fillStateField(address.state);
     await apiLoggedInApp.billingAddressPage.fillCountryField(address.country);
