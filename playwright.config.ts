@@ -18,16 +18,26 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
-  ['html'],
-  ['dot'],
-  ['json', { outputFile: 'test-results.json' }],
-  [
-    '@testomatio/reporter/playwright',
-  {
-      apiKey: process.env.TESTOMATIO,
-    },
+    ['html'],
+    ['dot'],
+    ['json', { outputFile: 'test-results.json' }],
+    [
+      '@testomatio/reporter/playwright',
+      {
+        apiKey: process.env.TESTOMATIO,
+      },
+    ],
+    ['@reportportal/agent-js-playwright', {
+      endpoint: process.env.RP_ENDPOINT,
+      token: process.env.RP_TOKEN,
+      project: process.env.RP_PROJECT,
+      launch: 'Playwright Launch',
+      description: 'Automated tests',
+      attributes: [
+        { key: 'env', value: 'local' }
+      ]
+    }],
   ],
-],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   testIgnore: [
     'tests/login-using-file.spec.ts',
