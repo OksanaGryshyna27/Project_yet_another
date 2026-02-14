@@ -57,14 +57,6 @@ export default defineConfig({
         ...devices['Desktop Safari'],
       },
     },
-    {
-     name: 'smoke',
-     grep: /@smoke/,
-    },
-    {
-     name: 'regression',
-     grep: /@regression/,
-    },
   
 
     /* Test against mobile viewports. */
