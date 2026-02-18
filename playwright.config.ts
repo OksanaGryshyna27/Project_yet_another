@@ -1,15 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
-import { config as dotenvConfig } from 'dotenv';
-import { BASE_URL } from './config/test-data';
+import { BASE_URL } from './config/baseConfig';
 
-dotenvConfig();
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
+
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -25,43 +17,74 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [
+    ['html'],
+    ['dot'],
+    ['json', { outputFile: 'test-results.json' }],
+    [
+      '@testomatio/reporter/playwright',
+      {
+        apiKey: process.env.TESTOMATIO,
+      },
+    ],
+    ['@reportportal/agent-js-playwright', {
+      endpoint: process.env.RP_ENDPOINT,
+      token: process.env.RP_TOKEN,
+      project: process.env.RP_PROJECT,
+      launch: 'Playwright Launch',
+      description: 'Automated tests',
+      attributes: [
+        { key: 'env', value: 'local' }
+      ]
+    }],
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+  testIgnore: [
+    'tests/login-using-file.spec.ts',
+    'tests/auth-setup.spec.ts',
+    'tests/verifyLoggedInUserWithFixtures.spec.ts',
+    'tests/verifyLogin.spec.ts'
+  ],
   use: {
+     // Capture screenshot after each test failure.
+    screenshot: 'only-on-failure',
+
+    // Record trace only when retrying a test for the first time.
+    trace: 'on-first-retry',
+
+    // Record video only when retrying a test for the first time.
+    video: 'on-first-retry',
+
     "testIdAttribute": "data-test",
     /* Base URL to use in actions like `await page.goto('')`. */
     baseURL: BASE_URL,
-
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'perform-login',
-      testMatch: /auth-setup\.spec\.ts/,
-      use: { browserName: 'chromium' },
-    },
-    {
       name: 'chromium',
       use: {
-        //storageState: 'playwright/.auth/user.json',
-        //...devices['Desktop Chrome'],
+        ...devices['Desktop Chrome'],
         browserName: 'chromium',
       },
-      dependencies: ['perform-login'],
     },
 
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      use: {
+        ...devices['Desktop Firefox'],
+      },
     },
+    
 
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      use: {
+        ...devices['Desktop Safari'],
+      },
     },
+  
 
     /* Test against mobile viewports. */
     // {

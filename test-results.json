@@ -1,0 +1,314 @@
+{
+  "config": {
+    "configFile": "/Users/oksana/Documents/JSOvcharenko/Project_yet_another/playwright.config.ts",
+    "rootDir": "/Users/oksana/Documents/JSOvcharenko/Project_yet_another/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        null
+      ],
+      [
+        "dot",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results.json"
+        }
+      ],
+      [
+        "/Users/oksana/Documents/JSOvcharenko/Project_yet_another/node_modules/@testomatio/reporter/lib/adapter/playwright.js",
+        {
+          "apiKey": "tstmt_DF7A_oDKVb1UsasME_Co7L0ENYdxroUMmg1771077380"
+        }
+      ],
+      [
+        "/Users/oksana/Documents/JSOvcharenko/Project_yet_another/node_modules/@reportportal/agent-js-playwright/build/index.js",
+        {
+          "endpoint": "http://localhost:8080/api/v1",
+          "token": "1764b5b0-0fb1-42c4-865d-a3fbd28710c2",
+          "project": "superadmin_personal",
+          "launch": "Playwright Launch",
+          "description": "Automated tests",
+          "attributes": [
+            {
+              "key": "env",
+              "value": "local"
+            }
+          ]
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/oksana/Documents/JSOvcharenko/Project_yet_another/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/oksana/Documents/JSOvcharenko/Project_yet_another/tests",
+        "testIgnore": [
+          "tests/login-using-file.spec.ts",
+          "tests/auth-setup.spec.ts",
+          "tests/verifyLoggedInUserWithFixtures.spec.ts",
+          "tests/verifyLogin.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/oksana/Documents/JSOvcharenko/Project_yet_another/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/oksana/Documents/JSOvcharenko/Project_yet_another/tests",
+        "testIgnore": [
+          "tests/login-using-file.spec.ts",
+          "tests/auth-setup.spec.ts",
+          "tests/verifyLoggedInUserWithFixtures.spec.ts",
+          "tests/verifyLogin.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/oksana/Documents/JSOvcharenko/Project_yet_another/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/oksana/Documents/JSOvcharenko/Project_yet_another/tests",
+        "testIgnore": [
+          "tests/login-using-file.spec.ts",
+          "tests/auth-setup.spec.ts",
+          "tests/verifyLoggedInUserWithFixtures.spec.ts",
+          "tests/verifyLogin.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "3way",
+    "version": "1.57.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "verifyProductDedtails.spec.ts",
+      "file": "verifyProductDedtails.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Verify user can view product details",
+          "ok": true,
+          "tags": [
+            "smoke"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3611,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Open home page",
+                      "duration": 236
+                    },
+                    {
+                      "title": "Open product \"Combination Pliers\"",
+                      "duration": 392
+                    },
+                    {
+                      "title": "Verify product details",
+                      "duration": 367
+                    },
+                    {
+                      "title": "Verify action buttons are visible",
+                      "duration": 5
+                    }
+                  ],
+                  "startTime": "2026-02-18T15:11:25.834Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "535abec0161be2a36381-fce310b6cb539f849c24",
+          "file": "verifyProductDedtails.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "Verify user can view product details",
+          "ok": true,
+          "tags": [
+            "smoke"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4074,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Open home page",
+                      "duration": 114
+                    },
+                    {
+                      "title": "Open product \"Combination Pliers\"",
+                      "duration": 858
+                    },
+                    {
+                      "title": "Verify product details",
+                      "duration": 377
+                    },
+                    {
+                      "title": "Verify action buttons are visible",
+                      "duration": 6
+                    }
+                  ],
+                  "startTime": "2026-02-18T15:11:29.742Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "535abec0161be2a36381-a4b322ecb5988d8010a4",
+          "file": "verifyProductDedtails.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "Verify user can view product details",
+          "ok": true,
+          "tags": [
+            "smoke"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4116,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Open home page",
+                      "duration": 193
+                    },
+                    {
+                      "title": "Open product \"Combination Pliers\"",
+                      "duration": 872
+                    },
+                    {
+                      "title": "Verify product details",
+                      "duration": 371
+                    },
+                    {
+                      "title": "Verify action buttons are visible",
+                      "duration": 8
+                    }
+                  ],
+                  "startTime": "2026-02-18T15:11:34.106Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "535abec0161be2a36381-3e3674761ec81ad146c1",
+          "file": "verifyProductDedtails.spec.ts",
+          "line": 4,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-02-18T15:11:25.310Z",
+    "duration": 12960.029999999999,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

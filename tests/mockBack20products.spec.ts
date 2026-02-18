@@ -1,9 +1,9 @@
 import { expect } from '@playwright/test';
 import { test } from '../fixture';
-import { API_BASE_URL } from '../config/test-data';
+import { API_BASE_URL } from '../config/baseConfig';
 import { createMockProducts } from '../utils/mockProducts';
 
-test('Verify 20 products are visible on the page', async ({ allPages }) => {
+test('Verify 20 products are visible on the page', { tag: ['@regression'] }, async ({ allPages }) => {
 
     await allPages.page.route(`${API_BASE_URL}/products*`, async route => {
         

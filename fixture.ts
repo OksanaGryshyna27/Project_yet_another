@@ -1,20 +1,33 @@
 import { test as base, BrowserContext } from '@playwright/test';
 import { AllPages } from './pageObjects/allPages';
 import path from 'path';
-import { API_BASE_URL, USER_EMAIL, USER_PASSWORD } from './config/test-data';
+import { API_BASE_URL, USER_EMAIL, USER_PASSWORD } from './config/baseConfig';
+
+
+
 
 const authFile = path.resolve(__dirname, 'playwright/.auth/user.json');
 
 type MyFixtures = {
-    loggedInApp: AllPages;
-    allPages: AllPages;
-    apiLoggedInApp: AllPages;
-    context: BrowserContext
+  _skipWebkitOnCI: void;
+  loggedInApp: AllPages;
+  allPages: AllPages;
+  apiLoggedInApp: AllPages;
+  context: BrowserContext;
 
 };
 
 export const test = base.extend<MyFixtures>({
 
+  _skipWebkitOnCI: [
+  async ({ browserName }: { browserName: string }, use) => {
+    if (process.env.CI && browserName === 'webkit') {
+      test.skip(true, 'Skipped on CI for WebKit due to Cloudflare');
+    }
+    await use();
+  },
+  { auto: true }
+],
 
     loggedInApp: async ({ browser }, use) => {
 

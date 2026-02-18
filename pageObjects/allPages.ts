@@ -8,6 +8,7 @@ import { HeaderFragment } from "./Fragments/header.fragment";
 import { BillingAddressPage } from "./billingAddress.page";
 import { PaymentPage } from "./payment.page";
 
+
 export class AllPages {
     loginPage: LoginPage;
     accountPage: AccountPage;
@@ -18,6 +19,7 @@ export class AllPages {
     billingAddressPage: BillingAddressPage;
     paymentPage: PaymentPage;
     page: Page;
+
 
     constructor(page: Page) {
         this.loginPage = new LoginPage(page);

@@ -1,30 +1,22 @@
-import { test } from '@playwright/test';
-import { HomePage } from '../pageObjects/home.page'; 
-import { ProductDetails } from '../pageObjects/productDetails.page'; 
-import { HeaderFragment } from '../pageObjects/Fragments/header.fragment'; 
-import { CheckoutPage } from '../pageObjects/checkout.page';
+import { test } from "../fixture";
+test('Verify user can add product to cart', { tag: ['@regression'] }, async ({ apiLoggedInApp }) => {
+    
 
-test('Verify user can add product to cart', async ({ page }) => {
-    const homePage = new HomePage(page);
-    const productDetails = new ProductDetails(page);
-    const headerFragment = new HeaderFragment(page);
-    const checkoutPage = new CheckoutPage(page);
-
-    await homePage.openHomePage();
-    await homePage.clickProductByName('Slip Joint Pliers');
-    await productDetails.verifyProductURL();
-    await productDetails.verifyProductName('Slip Joint Pliers');
-    await productDetails.verifyProductPrice('9.17');
-    await productDetails.clickToAddCartButton();
-    await productDetails.verifyToastVisible();
-    await productDetails.verifyToastText();
-    await productDetails.verifyToastDisappears();
-    await headerFragment.verifyCartQuantity('1')
-    await headerFragment.goToCheckout();
-    await checkoutPage.verifyCheckoutURL();
-    await checkoutPage.verifyItemCount('1');
-    await checkoutPage.verifyProductTitle('Slip Joint Pliers');
-    await checkoutPage.verifyProceedButtonVisible();
+    await apiLoggedInApp.homePage.openHomePage();
+    await apiLoggedInApp.homePage.clickProductByName('Slip Joint Pliers');
+    await apiLoggedInApp.productDetailsPage.verifyProductURL();
+    await apiLoggedInApp.productDetailsPage.verifyProductName('Slip Joint Pliers');
+    await apiLoggedInApp.productDetailsPage.verifyProductPrice('9.17');
+    await apiLoggedInApp.productDetailsPage.clickToAddCartButton();
+    await apiLoggedInApp.productDetailsPage.verifyToastVisible();
+    await apiLoggedInApp.productDetailsPage.verifyToastText();
+    await apiLoggedInApp.productDetailsPage.verifyToastDisappears();
+    await apiLoggedInApp.headerFragment.verifyCartQuantity('1')
+    await apiLoggedInApp.headerFragment.goToCheckout();
+    await apiLoggedInApp.checkoutPage.verifyCheckoutURL();
+    await apiLoggedInApp.checkoutPage.verifyItemCount('1');
+    await apiLoggedInApp.checkoutPage.verifyProductTitle('Slip Joint Pliers');
+    await apiLoggedInApp.checkoutPage.verifyProceedButtonVisible();
 }
 )
     
