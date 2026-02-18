@@ -25,6 +25,9 @@ jobs:
         USER_EMAIL: ${{ secrets.USER_EMAIL }}
         USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
         TESTOMATIO: ${{ secrets.TESTOMATIO }}
+        RP_ENDPOINT: ${{ secrets.RP_ENDPOINT}}
+        RP_TOKEN: ${{ secrets.RP_TOKEN}}
+        RP_PROJECT: ${{ secrets.PR_Project}}
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:

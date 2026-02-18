@@ -11,10 +11,10 @@ test('Verify user can view product details', { tag: ['@smoke'] }, async ({ apiLo
         await apiLoggedInApp.homePage.clickProductByName('Combination Pliers');
     });    
     await test.step('Verify product details', async () => {
-        await apiLoggedInApp.productDetailsPage.verifyProductURL();
-    });    
-    await apiLoggedInApp.productDetailsPage.verifyProductName('Combination Pliers');
-    await apiLoggedInApp.productDetailsPage.verifyProductPrice('14.15');
+        await apiLoggedInApp.productDetailsPage.verifyProductURL();   
+        await apiLoggedInApp.productDetailsPage.verifyProductName('Combination Pliers');
+        await apiLoggedInApp.productDetailsPage.verifyProductPrice('14.15');
+    }); 
     await test.step('Verify action buttons are visible', async () => {
         await apiLoggedInApp.productDetailsPage.verifyAddToCartButtonVisible();
         await apiLoggedInApp.productDetailsPage.verifyAddToFavoriteButtonVisible();
